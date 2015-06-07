@@ -32,4 +32,20 @@ describe "Family" do
 
   end
 
+  describe "#only_children" do
+
+    it "returns the names of members who have no siblings" do
+      @family.add_member("Nancy")
+      @family.add_member("Jill", parent_name: "Nancy")
+      @family.add_member("Carl", parent_name: "Nancy")
+      @family.add_member("Catherine", parent_name: "Carl")
+
+      only_child_names = @family.only_children.split(", ")
+      expect(only_child_names).to include("Nancy")
+      expect(only_child_names).to include("Catherine")
+      expect(only_child_names.length).to eq(2)
+    end
+
+  end
+
 end
