@@ -3,15 +3,13 @@ require 'member'
 class Family
   attr_reader :members
 
-  @@memberClass = Member
-
   def initialize
     @members = []
   end
 
   def add_member(name, parent_name: nil)
     parent = get_member_by_name(parent_name)
-    new_member = @@memberClass.new(name, parent)
+    new_member = Member.new(name, parent)
     @members << new_member
     parent.children << new_member if parent
   end
