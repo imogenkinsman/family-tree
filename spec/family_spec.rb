@@ -24,7 +24,10 @@ describe "Family" do
   describe "#grandparent_of" do
 
     it "returns the grandparent of a family member" do
-
+      @family.add_member("Nancy")
+      @family.add_member("Jill", parent_name: "Nancy")
+      @family.add_member("Kevin", parent_name: "Jill")
+      expect(@family.grandparent_of("Kevin")).to eq("Nancy")
     end
 
   end
