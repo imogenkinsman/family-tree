@@ -1,7 +1,9 @@
+require 'member'
+
 class Family
   attr_reader :members
 
-  @@memberClass = Struct.new("Member", :name, :parent)
+  @@memberClass = Member
 
   def initialize
     @members = []

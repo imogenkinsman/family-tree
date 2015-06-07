@@ -1,4 +1,4 @@
-require_relative('../family')
+require_relative '../lib/family'
 
 describe "Family" do
 
