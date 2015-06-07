@@ -15,8 +15,7 @@ class Family
   end
 
   def grandparent_of(name)
-    member = get_member_by_name(name)
-    member.parent.parent.name
+    get_member_by_name(name).grandparent.name
   end
 
   private

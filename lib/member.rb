@@ -6,4 +6,8 @@ class Member
     @parent = parent
   end
 
+  def grandparent
+    @parent.parent
+  end
+
 end
