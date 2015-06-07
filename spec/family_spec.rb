@@ -15,7 +15,7 @@ describe "Family" do
 
     it "can add a new family member and maintain a reference to their parent" do
       @family.add_member("Nancy")
-      @family.add_member("Jill", parent: "Nancy")
+      @family.add_member("Jill", parent_name: "Nancy")
       expect(@family.members[1].parent.name).to eq("Nancy")
     end
 

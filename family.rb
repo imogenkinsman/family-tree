@@ -7,7 +7,8 @@ class Family
     @members = []
   end
 
-  def add_member(person, parent: nil)
-    @members << @@memberClass.new(person, parent)
+  def add_member(name, parent_name: nil)
+    parent = @members.find{ |member| member.name == parent_name}
+    @members << @@memberClass.new(name, parent)
   end
 end
