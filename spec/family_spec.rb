@@ -1,3 +1,5 @@
+require_relative('../family')
+
 describe "Family" do
 
   before(:each) do
