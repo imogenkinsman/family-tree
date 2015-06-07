@@ -11,4 +11,9 @@ class Family
     parent = @members.find{ |member| member.name == parent_name}
     @members << @@memberClass.new(name, parent)
   end
+
+  def grandparent_of(name)
+    member = @members.find{ |member| member.name == name }
+    member.parent.parent.name
+  end
 end
