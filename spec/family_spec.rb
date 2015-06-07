@@ -13,10 +13,10 @@ describe "Family" do
       expect(@family.members.length).to eq(1)
     end
 
-    it "can add a new family member and remember their parent" do
+    it "can add a new family member and maintain a reference to their parent" do
       @family.add_member("Nancy")
       @family.add_member("Jill", parent: "Nancy")
-      expect(@family.members[1].parent).to eq("Nancy")
+      expect(@family.members[1].parent.name).to eq("Nancy")
     end
 
   end
