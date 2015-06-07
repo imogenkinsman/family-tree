@@ -48,4 +48,20 @@ describe "Family" do
 
   end
 
+  describe "#no_children" do
+
+    it "returns the names of childless members" do
+      @family.add_member("Nancy")
+      @family.add_member("Jill", parent_name: "Nancy")
+      @family.add_member("Adam", parent_name: "Nancy")
+      @family.add_member("Kevin", parent_name: "Jill")
+
+      childless_names = @family.no_chidren.split(", ")
+      expect(childless_names).to include("Adam")
+      expect(childless_names).to include("Kevin")
+      expect(childless_names.length).to eq(2)
+    end
+
+  end
+
 end
