@@ -20,6 +20,11 @@ class Family
     get_member_by_name(name).grandparent.name
   end
 
+  def only_children
+    children = @members.select{ |member| !member.parent || member.parent.children.length == 1 }
+    children.map(&:name).join(', ')
+  end
+
   private
 
   def get_member_by_name(name)
