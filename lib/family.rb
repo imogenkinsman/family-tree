@@ -11,7 +11,9 @@ class Family
 
   def add_member(name, parent_name: nil)
     parent = get_member_by_name(parent_name)
-    @members << @@memberClass.new(name, parent)
+    new_member = @@memberClass.new(name, parent)
+    @members << new_member
+    parent.children << new_member if parent
   end
 
   def grandparent_of(name)
