@@ -13,6 +13,20 @@ describe "Family" do
       expect(@family.members.length).to eq(1)
     end
 
+    it "can add a new family member and remember their parent" do
+      @family.add_member("Nancy")
+      @family.add_member("Jill", parent: "Nancy")
+      expect(@family.members[1].parent).to eq("Nancy")
+    end
+
+  end
+
+  describe "#grandparent_of" do
+
+    it "returns the grandparent of a family member" do
+
+    end
+
   end
 
 end
