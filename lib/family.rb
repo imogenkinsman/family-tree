@@ -15,8 +15,8 @@ class Family
   end
 
   def grandparent_of(name)
-    member = get_member_by_name(name)
-    member.has_grandparent? ? member.grandparent.name : nil
+    grandparent = get_member_by_name(name).grandparent
+    grandparent ? grandparent.name : nil
   end
 
   def only_children

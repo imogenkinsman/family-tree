@@ -8,11 +8,7 @@ class Member
   end
 
   def grandparent
-    parent.parent
-  end
-
-  def has_grandparent?
-    parent && grandparent
+    !parent || !(parent.parent) ? nil : parent.parent
   end
 
 end
