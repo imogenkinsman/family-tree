@@ -1,7 +1,7 @@
 class Member
   attr_accessor :name, :parent, :children
 
-  def initialize(name, parent)
+  def initialize(name, parent = nil)
     @name = name
     @parent = parent
     @children = []
