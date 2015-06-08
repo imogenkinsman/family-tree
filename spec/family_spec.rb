@@ -64,4 +64,17 @@ describe "Family" do
 
   end
 
+  describe "#most_grandchildren" do
+
+    it "returns the name of the member who has the most grandchildren" do
+      @family.add_member("Nancy")
+      @family.add_member("Jill", parent_name: "Nancy")
+      @family.add_member("Adam", parent_name: "Nancy")
+      @family.add_member("Kevin", parent_name: "Jill")
+
+      expect(@family.most_grandchildren).to eq("Nancy")
+    end
+
+  end
+
 end
