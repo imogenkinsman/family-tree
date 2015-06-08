@@ -56,7 +56,7 @@ describe "Family" do
       @family.add_member("Adam", parent_name: "Nancy")
       @family.add_member("Kevin", parent_name: "Jill")
 
-      childless_names = @family.no_chidren.split(", ")
+      childless_names = @family.no_children.split(", ")
       expect(childless_names).to include("Adam")
       expect(childless_names).to include("Kevin")
       expect(childless_names.length).to eq(2)

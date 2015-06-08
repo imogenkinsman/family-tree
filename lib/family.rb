@@ -23,6 +23,10 @@ class Family
     children.map(&:name).join(', ')
   end
 
+  def no_children
+    @members.select{ |member| member.children.empty? }.map(&:name).join(', ')
+  end
+
   private
 
   def get_member_by_name(name)
