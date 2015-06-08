@@ -30,6 +30,11 @@ describe "Family" do
       expect(@family.grandparent_of("Kevin")).to eq("Nancy")
     end
 
+    it "returns nil if the member has no grandparent" do
+      @family.add_member("Nancy")
+      expect(@family.grandparent_of("Nancy")).to be_nil
+    end
+
   end
 
   describe "#only_children" do

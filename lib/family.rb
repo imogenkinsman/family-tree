@@ -15,7 +15,8 @@ class Family
   end
 
   def grandparent_of(name)
-    get_member_by_name(name).grandparent.name
+    member = get_member_by_name(name)
+    member.has_grandparent? ? member.grandparent.name : nil
   end
 
   def only_children
@@ -30,7 +31,8 @@ class Family
   def most_grandchildren
     grandchild_counts = Hash.new(0)
     @members.each do |member|
-      grandchild_counts[grandparent_of(member.name)] += 1 if member.has_grandparent?
+      grandparent_name = grandparent_of(member.name)
+      grandchild_counts[grandparent_name] += 1 if grandparent_name
     end
     grandchild_counts.max_by{ |_, count| count }.first
   end
