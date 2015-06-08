@@ -20,12 +20,11 @@ class Family
   end
 
   def only_children
-    children = @members.select{ |member| !member.parent || member.parent.children.length == 1 }
-    children.map(&:name).join(', ')
+    @members.select{ |member| !member.parent || member.parent.children.length == 1 }.map(&:name)
   end
 
   def no_children
-    @members.select{ |member| member.children.empty? }.map(&:name).join(', ')
+    @members.select{ |member| member.children.empty? }.map(&:name)
   end
 
   def most_grandchildren

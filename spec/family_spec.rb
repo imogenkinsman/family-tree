@@ -45,7 +45,7 @@ describe "Family" do
       @family.add_member("Carl", parent_name: "Nancy")
       @family.add_member("Catherine", parent_name: "Carl")
 
-      only_child_names = @family.only_children.split(", ")
+      only_child_names = @family.only_children
       expect(only_child_names).to include("Nancy")
       expect(only_child_names).to include("Catherine")
       expect(only_child_names.length).to eq(2)
@@ -61,7 +61,7 @@ describe "Family" do
       @family.add_member("Adam", parent_name: "Nancy")
       @family.add_member("Kevin", parent_name: "Jill")
 
-      childless_names = @family.no_children.split(", ")
+      childless_names = @family.no_children
       expect(childless_names).to include("Adam")
       expect(childless_names).to include("Kevin")
       expect(childless_names.length).to eq(2)
