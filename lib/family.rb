@@ -27,6 +27,14 @@ class Family
     @members.select{ |member| member.children.empty? }.map(&:name).join(', ')
   end
 
+  def most_grandchildren
+    grandchild_counts = Hash.new(0)
+    @members.each do |member|
+      grandchild_counts[grandparent_of(member.name)] += 1 if member.has_grandparent?
+    end
+    grandchild_counts.max_by{ |_, count| count }.first
+  end
+
   private
 
   def get_member_by_name(name)

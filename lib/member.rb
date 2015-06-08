@@ -8,7 +8,11 @@ class Member
   end
 
   def grandparent
-    @parent.parent
+    parent.parent
+  end
+
+  def has_grandparent?
+    parent && grandparent
   end
 
 end
